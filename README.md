@@ -8,7 +8,7 @@
 </p>
 
 ## Passos para teste
-- Duplicar o arquivo .env.example, renomear a copía para .env e  setar as credenciais do seu banco de dados.
+- Duplicar o arquivo .env.example, renomear a cópia para .env e  setar as credenciais do seu banco de dados.
 
 - Instalando as dependências do composer
 ```sh
