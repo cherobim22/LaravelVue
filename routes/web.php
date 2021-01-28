@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/teste/{id}', function () {
+    return view('teste');
+});
 $router->get('/polls/{id}', 'App\Http\Controllers\PollController@getPoll');
 $router->get('/polls', 'App\Http\Controllers\PollController@buscarTodos');
 $router->get('/options', 'App\Http\Controllers\OptionController@buscarTodos');
 $router->get('/options/{id}', 'App\Http\Controllers\OptionController@getPoll');
-$router->get('polll/status/{id}', 'App\Http\Controllers\PollController@getStatus');
+$router->get('poll/status/{id}', 'App\Http\Controllers\PollController@getStatus');
 
 Route::post('/poll', 'App\Http\Controllers\PollController@create');
 
