@@ -8,7 +8,7 @@
 </p>
 
 ## Passos para teste
-- No arquivo .env setar as credenciais do seu banco de dados
+- Duplicar o arquivo .env.exapmle, renomear a copia para .env e  setar as credenciais do seu banco de dados
 
 - Instalando as dependencias do composer
 ```sh
@@ -16,7 +16,7 @@ $ composer install
 ```
 - Realizando as migrations
 ```sh
-$ php run migrate
+$ php artisan migrate
 ```
 - Instalando as dependencias do node
 ```sh
