@@ -8,17 +8,21 @@
 </p>
 
 ## Passos para teste
-- no arquivo .env setar as credenciais do seu banco de dados
+- No arquivo .env setar as credenciais do seu banco de dados
 
-- instalando as dependencias do composer
+- Instalando as dependencias do composer
 ```sh
 $ composer install
 ```
-- irealizando as migrations
+- Realizando as migrations
 ```sh
-$ php migrate
+$ php run migrate
 ```
-- instalando as dependencias do npm
+- instalando as dependencias do node
 ```sh
 $ npm install
+```
+- gerando a chave do app
+```sh
+$ php artisan key:generate
 ```
