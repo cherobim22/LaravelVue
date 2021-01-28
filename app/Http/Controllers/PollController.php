@@ -50,7 +50,7 @@ class PollController extends Controller
        ];
 
        for($i=0; $i<=2; $i++){
-           $aux['options'][$i] =  ["option_id" => $o[$i]->id, "option_description" => $o[$i]->name] ;
+           $aux['options'][$i] =  ["option_id" => $o[$i]->id, "option_description" => $o[$i]->name, "votes" => $o[$i]->votes] ;
 
        }
 
