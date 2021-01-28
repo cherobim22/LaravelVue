@@ -18,11 +18,11 @@ $ composer install
 ```sh
 $ php run migrate
 ```
-- instalando as dependencias do node
+- Instalando as dependencias do node
 ```sh
 $ npm install
 ```
-- gerando a chave do app
+- Gerando a chave do app
 ```sh
 $ php artisan key:generate
 ```
