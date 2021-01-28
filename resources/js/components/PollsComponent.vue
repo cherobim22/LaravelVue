@@ -8,26 +8,24 @@
                     <div class="card-body">
                         <FormComponent v-on:teste="getPolls"></FormComponent>
 
-                <div class="cards">
-                    <div class="row " >
-                        <div class="col-sm-6 polls" v-for="poll in polls" :key="poll.id"  v-on:click="click($event)" data-toggle="modal" data-target="#exampleModal">
-                            <div class="card-container">
-                                <div class="desc">
-                                    <h6 class="card-title"> <span>{{poll.description}}</span></h6>
+                        <div class="cards">
+                            <div class="row " >
+                                <div class="col-sm-6 polls" v-for="poll in polls" :key="poll.id"  v-on:click="click($event)" data-toggle="modal" data-target="#optionsModal">
+                                    <div class="card-container">
+                                        <div class="desc">
+                                            <h6 class="card-title"> <span>{{poll.description}}</span></h6>
+                                        </div>
+                                        <div class="views-p">
+                                            <button href="#" class="btn btn-primary" style="background-color:#00c3ff" disabled>Visualizações: {{poll.views}}</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            <div class="views-p">
-
-                                <button href="#" class="btn btn-primary" style="background-color:#00c3ff" disabled>Visualizações: {{poll.views}}</button>
-                            </div>
                             </div>
                         </div>
+                        <ModalComponents :opt="opt" :views="views" :name="name" v-on:teste="getPolls"></ModalComponents>
                     </div>
                 </div>
-<ModalComponents :opt="opt" :views="views" :name="name" v-on:teste="getPolls"></ModalComponents>
-
-                </div>
             </div>
-        </div>
 
         </div>
     </div>
@@ -73,10 +71,7 @@ import FormComponent from './FormComponent'
                console.log(x);
             });
 
-    this.getPolls();
-            console.log('Component mounted.')
-
-
+            this.getPolls();
 
         },
         methods:{
@@ -105,23 +100,6 @@ import FormComponent from './FormComponent'
 
                     }
                 });
-
-
-            },
-            saveVote: function(event){
-                var targetId = event.currentTarget.id;
-                console.log(targetId)
-
-                axios.post(`http://localhost:8000/api/opt/${targetId}`).then((res)=>{
-                    console.log(res)
-
-                }).then(()=>{
-                    this.getPolls();
-
-                }).then(()=>{
-
-                    $("#exampleModal").modal('toggle');
-                })
             },
             getPolls: function(){
                  axios.get('http://localhost:8000/polls').then((res)=>{
@@ -131,19 +109,6 @@ import FormComponent from './FormComponent'
 
                 // console.log(this.polls);
                 var cont = 0
-                // this.polls.forEach(element => {
-
-                //     this.name = element.description;
-
-                //     // axios.get(`http://localhost:8000/polls/${element.id}`).then((res)=>{
-
-                //     //     // console.log(res.data)
-                //     //     this.testes[cont] =res.data
-                //     //     cont=cont+1;
-                //     // });
-
-                // });
-
             }).then(()=>{
                 // console.log(this.testes)
                 //  console.log(this.polls.length);
@@ -152,8 +117,6 @@ import FormComponent from './FormComponent'
                  for(var i=0; i<this.polls.length; i++){
                     //  console.log(pl);
                     pl[i].setAttribute("id", this.polls[i].id)
-                    //  console.log(this.polls[i].id);
-
                  }
             });
             }
@@ -165,11 +128,6 @@ input{
     border: 1px solid black;
 }
 
-/* .polls{
-    border: 1px solid red;
-    width: 100px;
-    height: 100px;
-} */
 .campanhas{
     display: flex;
     justify-content: space-between;
@@ -180,7 +138,6 @@ input{
     /* margin-top: 10px; */
     text-align: center;
     width: 100%;
-       /* border: 1px solid red; */
 }
 
 .polls {

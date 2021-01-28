@@ -1894,15 +1894,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       erro: null
     };
   },
-  created: function created() {},
   methods: {
     closePoll: function closePoll() {
       document.getElementById('description').value = "";
@@ -2010,7 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         _this.$emit('teste');
       }).then(function () {
-        $("#exampleModal").modal('toggle');
+        $("#optionsModal").modal('toggle');
       });
     }
   }
@@ -2035,8 +2032,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ModalComponents__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalComponents */ "./resources/js/components/ModalComponents.vue");
 /* harmony import */ var _FormComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FormComponent */ "./resources/js/components/FormComponent.vue");
-//
-//
 //
 //
 //
@@ -2109,7 +2104,6 @@ __webpack_require__.r(__webpack_exports__);
       console.log(x);
     });
     this.getPolls();
-    console.log('Component mounted.');
   },
   methods: {
     click: function click(event) {
@@ -2136,42 +2130,22 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    saveVote: function saveVote(event) {
-      var _this3 = this;
-
-      var targetId = event.currentTarget.id;
-      console.log(targetId);
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("http://localhost:8000/api/opt/".concat(targetId)).then(function (res) {
-        console.log(res);
-      }).then(function () {
-        _this3.getPolls();
-      }).then(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#exampleModal").modal('toggle');
-      });
-    },
     getPolls: function getPolls() {
-      var _this4 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://localhost:8000/polls').then(function (res) {
         console.log(res.data);
-        _this4.polls = res.data; // console.log(this.polls);
+        _this3.polls = res.data; // console.log(this.polls);
 
-        var cont = 0; // this.polls.forEach(element => {
-        //     this.name = element.description;
-        //     // axios.get(`http://localhost:8000/polls/${element.id}`).then((res)=>{
-        //     //     // console.log(res.data)
-        //     //     this.testes[cont] =res.data
-        //     //     cont=cont+1;
-        //     // });
-        // });
+        var cont = 0;
       }).then(function () {
         // console.log(this.testes)
         //  console.log(this.polls.length);
         var pl = document.querySelectorAll(".polls");
 
-        for (var i = 0; i < _this4.polls.length; i++) {
+        for (var i = 0; i < _this3.polls.length; i++) {
           //  console.log(pl);
-          pl[i].setAttribute("id", _this4.polls[i].id); //  console.log(this.polls[i].id);
+          pl[i].setAttribute("id", _this3.polls[i].id);
         }
       });
     }
@@ -6767,7 +6741,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ninput[data-v-3e2c2174]{\n    border: 1px solid black;\n}\n\n/* .polls{\n    border: 1px solid red;\n    width: 100px;\n    height: 100px;\n} */\n.campanhas[data-v-3e2c2174]{\n    display: flex;\n    justify-content: space-between;\n}\n.desc[data-v-3e2c2174]{\n    position: relative;\n    bottom: 20px;\n    /* margin-top: 10px; */\n    text-align: center;\n    width: 100%;\n       /* border: 1px solid red; */\n}\n.polls[data-v-3e2c2174] {\n    padding: 15px;\n}\n.views-p[data-v-3e2c2174]{\n    position: relative;\n    bottom: 10px;\n    width: 100%;\n    /* border: 1px solid red; */\n    display: flex;\n    justify-content: center;\n}\n.card-container[data-v-3e2c2174]{\n    cursor: pointer;\n    height: 140px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    display: flex;\n    flex-direction: column;\n    /* align-items: center; */\n\n    justify-content: flex-end;\n}\n.card-container h6[data-v-3e2c2174]{\n    cursor: pointer;\n}\n.card-container[data-v-3e2c2174]:hover{\n    border: 1px solid  #00c3ff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput[data-v-3e2c2174]{\n    border: 1px solid black;\n}\n.campanhas[data-v-3e2c2174]{\n    display: flex;\n    justify-content: space-between;\n}\n.desc[data-v-3e2c2174]{\n    position: relative;\n    bottom: 20px;\n    /* margin-top: 10px; */\n    text-align: center;\n    width: 100%;\n}\n.polls[data-v-3e2c2174] {\n    padding: 15px;\n}\n.views-p[data-v-3e2c2174]{\n    position: relative;\n    bottom: 10px;\n    width: 100%;\n    /* border: 1px solid red; */\n    display: flex;\n    justify-content: center;\n}\n.card-container[data-v-3e2c2174]{\n    cursor: pointer;\n    height: 140px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    display: flex;\n    flex-direction: column;\n    /* align-items: center; */\n\n    justify-content: flex-end;\n}\n.card-container h6[data-v-3e2c2174]{\n    cursor: pointer;\n}\n.card-container[data-v-3e2c2174]:hover{\n    border: 1px solid  #00c3ff;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38403,14 +38377,9 @@ var render = function() {
           [
             _c("div", { staticClass: "modal-content" }, [
               _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLabel" }
-                  },
-                  [_vm._v("Nova Enquete")]
-                ),
+                _c("h5", { staticClass: "modal-title", attrs: { id: "" } }, [
+                  _vm._v("Nova Enquete")
+                ]),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -38572,10 +38541,10 @@ var render = function() {
     {
       staticClass: "modal fade",
       attrs: {
-        id: "exampleModal",
+        id: "optionsModal",
         tabindex: "-1",
         role: "dialog",
-        "aria-labelledby": "exampleModalLabel",
+        "aria-labelledby": "optionsModalLabel",
         "aria-hidden": "true"
       }
     },
@@ -38590,7 +38559,7 @@ var render = function() {
                 "h5",
                 {
                   staticClass: "modal-title",
-                  attrs: { id: "exampleModalLabel" }
+                  attrs: { id: "optionsModalLabel" }
                 },
                 [_vm._v(_vm._s(_vm.name))]
               ),
@@ -38703,7 +38672,7 @@ var render = function() {
                         staticClass: "col-sm-6 polls",
                         attrs: {
                           "data-toggle": "modal",
-                          "data-target": "#exampleModal"
+                          "data-target": "#optionsModal"
                         },
                         on: {
                           click: function($event) {

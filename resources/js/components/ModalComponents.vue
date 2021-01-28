@@ -1,9 +1,9 @@
 <template>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="optionsModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" style="height: 420px;">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{name}}</h5>
+                    <h5 class="modal-title" id="optionsModalLabel">{{name}}</h5>
                     <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -34,20 +34,20 @@ export default {
     },
     methods:{
          saveVote: function(event){
-                var targetId = event.currentTarget.id;
-                console.log(targetId)
+            var targetId = event.currentTarget.id;
+            console.log(targetId)
 
-                axios.post(`http://localhost:8000/api/opt/${targetId}`).then((res)=>{
-                    console.log(res)
+            axios.post(`http://localhost:8000/api/opt/${targetId}`).then((res)=>{
+                console.log(res)
 
-                }).then(()=>{
-                 this.$emit('teste');
+            }).then(()=>{
+                this.$emit('teste');
 
-                }).then(()=>{
+            }).then(()=>{
 
-                    $("#exampleModal").modal('toggle');
-                })
-            },
+                $("#optionsModal").modal('toggle');
+            })
+        },
     }
 }
 </script>
